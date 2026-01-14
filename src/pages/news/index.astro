@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('news')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<Layout title="News | Time Biotechnologies, Inc.">
+  <Header />
+  
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>News</h1>
+        <p>お知らせ</p>
+      </div>
+    </div>
+
+    <div class="container page-content">
+      <div class="news-list">
+        {posts.map((post) => (
+          <article class="news-item">
+            <a href={`/news/${post.slug}`} class="news-link">
+              <time datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toISOString().slice(0, 10)}
+              </time>
+              <h2 class="news-title">{post.data.title}</h2>
+              <span class="arrow">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-header {
+    background-color: var(--c-gray-50);
+    padding: 4rem 0 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--c-gray-500);
+    font-size: 1.1rem;
+  }
+
+  .page-content {
+    max-width: 800px;
+    margin: 0 auto 6rem;
+    min-height: 50vh;
+  }
+
+  .news-list {
+    border-top: 1px solid var(--c-gray-200);
+  }
+
+  .news-item {
+    border-bottom: 1px solid var(--c-gray-200);
+    transition: background-color 0.2s;
+  }
+  
+  .news-item:hover {
+    background-color: var(--c-gray-50);
+  }
+
+  .news-link {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    color: var(--c-black);
+    gap: 2rem;
+  }
+  
+  .news-link time {
+    color: var(--c-gray-500);
+    font-family: monospace;
+    white-space: nowrap;
+  }
+  
+  .news-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex-grow: 1;
+    margin: 0;
+  }
+  
+  .arrow {
+    color: var(--c-gray-500);
+  }
+
+  @media (max-width: 640px) {
+    .news-link {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .arrow { display: none; }
+  }
+</style>

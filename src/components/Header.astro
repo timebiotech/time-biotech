@@ -1,0 +1,163 @@
+---
+---
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      Time Biotechnologies
+    </a>
+
+    <button id="menu-toggle" class="menu-toggle" aria-label="Menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav id="nav-menu" class="nav-menu">
+      <ul class="nav-list">
+        <li><a href="/company" class="nav-link">Company</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/pipeline" class="nav-link">Pipeline</a></li>
+        <li><a href="/news" class="nav-link">News</a></li>
+        <li><a href="/contact" class="nav-link btn btn-cat">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+      navMenu.classList.toggle('is-active');
+      menuToggle.classList.toggle('is-active');
+    });
+  }
+</script>
+
+<style>
+  .header {
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--c-gray-100);
+  }
+
+  .header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--c-black);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--c-gray-800);
+  }
+
+  .nav-link:hover {
+    color: var(--c-accent);
+  }
+
+  .nav-link.btn-cat {
+    background-color: var(--c-black);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+  }
+  
+  .nav-link.btn-cat:hover {
+    background-color: var(--c-accent);
+    color: white;
+    opacity: 1;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--c-black);
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border-bottom: 1px solid var(--c-gray-100);
+      padding: 1rem 0;
+      transform: translateY(-150%);
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+
+    .nav-menu.is-active {
+      transform: translateY(0);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    
+    .nav-link.btn-cat {
+        width: 100%;
+        display: inline-block;
+        max-width: 200px;
+    }
+
+    /* Hamburger Animation */
+    .menu-toggle.is-active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+</style>

@@ -1,16 +1,243 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import { getCollection } from 'astro:content';
 
+// Get latest news
+const allNews = await getCollection('news');
+const latestNews = allNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Time Biotechnologies, Inc. | 神経疾患×iPS創薬基盤">
+	<Header />
+	
+	<main>
+		<Hero />
+		
+		<!-- Value Proposition Section -->
+		<section class="section value-prop-section">
+			<div class="container">
+				<h2 class="section-title text-center mb-8">Service & Technology</h2>
+				<div class="grid-3">
+					<div class="card">
+						<div class="card-icon">🧬</div>
+						<h3>疾患モデリング</h3>
+						<p>患者iPS由来の細胞を用いて、神経変性疾患などの病態を忠実に再現したモデルを構築します。</p>
+					</div>
+					<div class="card">
+						<div class="card-icon">🔬</div>
+						<h3>スクリーニング</h3>
+						<p>再現性の高い評価系を確立し、高スループットかつ高精度な薬剤スクリーニングを実現します。</p>
+					</div>
+					<div class="card">
+						<div class="card-icon">💊</div>
+						<h3>モダリティ展開</h3>
+						<p>低分子化合物だけでなく、抗体、核酸、細胞医薬など、多様なモダリティに対応した評価系を提供します。</p>
+					</div>
+				</div>
+                <div class="text-center" style="margin-top: 3rem;">
+                    <a href="/pipeline" class="btn btn-secondary">Pipeline詳細を見る</a>
+                </div>
+			</div>
+		</section>
+
+		<!-- Why Time Bio Section -->
+		<section class="section why-section">
+			<div class="container">
+				<div class="why-content text-center">
+					<h2>Why Time Bio</h2>
+                    <p class="lead-text">Time is Resource.</p>
+					<p>私たちの社名には、「時間」を最も貴重な資源と捉える思想が込められています。<br />
+                    創薬プロセスにおける膨大な時間を、テクノロジーによって「治療」へと変換する。<br />
+                    それがTime Biotechnologiesの使命です。</p>
+                    <a href="/company" class="text-link">企業理念を見る →</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- News Section -->
+		<section class="section news-section">
+			<div class="container">
+				<div class="news-wrapper">
+                    <h2 class="news-heading">Latest News</h2>
+                    {latestNews ? (
+                        <a href={`/news/${latestNews.slug}`} class="news-item">
+                            <span class="news-date">{latestNews.data.pubDate.toISOString().slice(0, 10)}</span>
+                            <span class="news-title">{latestNews.data.title}</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    ) : (
+                        <p>現在お知らせはありません。</p>
+                    )}
+                    <div class="news-more">
+                        <a href="/news" class="btn btn-sm">一覧を見る</a>
+                    </div>
+                </div>
+			</div>
+		</section>
+
+        <!-- Common CTA -->
+        <section class="section cta-section">
+            <div class="container text-center">
+                <h2>お問い合わせ</h2>
+                <p class="mb-8">共同研究・受託のご相談はお気軽にご連絡ください。</p>
+                <a href="/contact" class="btn btn-primary">Contact Us</a>
+            </div>
+        </section>
+	</main>
+	
+	<Footer />
+</Layout>
+
+<style>
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .card {
+        padding: 2rem;
+        background: white;
+        border: 1px solid var(--c-gray-100);
+        border-radius: var(--radius-md);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        border-color: var(--c-accent);
+    }
+
+    .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+    
+    .card p {
+        color: var(--c-gray-500);
+        font-size: 0.95rem;
+    }
+
+    /* Why Section */
+    .why-section {
+        background-color: var(--c-gray-50);
+    }
+    
+    .lead-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: var(--font-heading);
+        margin: 1rem 0;
+        color: var(--c-accent);
+    }
+
+    .text-link {
+        display: inline-block;
+        margin-top: 1.5rem;
+        color: var(--c-black);
+        font-weight: 600;
+        border-bottom: 1px solid currentColor;
+    }
+
+    /* News Section */
+    .news-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .news-heading {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+
+    .news-item {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        padding: 1.5rem;
+        border: 1px solid var(--c-gray-200);
+        border-radius: var(--radius-sm);
+        transition: background-color 0.2s;
+    }
+
+    .news-item:hover {
+        background-color: var(--c-gray-50);
+    }
+
+    .news-date {
+        color: var(--c-gray-500);
+        font-family: monospace;
+    }
+    
+    .news-title {
+        flex-grow: 1;
+        font-weight: 500;
+    }
+    
+    .news-more {
+        text-align: center;
+        margin-top: 1.5rem;
+    }
+    
+    .btn-sm {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--c-gray-200);
+        color: var(--c-gray-500);
+        border-radius: 999px;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        background-color: var(--c-primary);
+        color: white;
+    }
+    
+    .cta-section h2 {
+        color: white;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+        color: var(--c-gray-200);
+    }
+    
+    .cta-section .btn-primary {
+        background-color: white;
+        color: var(--c-primary);
+    }
+    
+    .cta-section .btn-primary:hover {
+        background-color: var(--c-accent);
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        .grid-3 {
+            grid-template-columns: 1fr;
+        }
+        
+        .news-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .arrow { display: none; }
+    }
+</style>

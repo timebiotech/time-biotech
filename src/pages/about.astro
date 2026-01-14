@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About | Time Biotechnologies, Inc.">
+  <Header />
+  
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>About</h1>
+        <p>会社概要</p>
+      </div>
+    </div>
+
+    <div class="container page-content">
+      <div class="company-table-wrapper">
+        <dl class="company-table">
+          <div class="table-row">
+            <dt>会社名</dt>
+            <dd>タイムバイオ株式会社<br><span class="en">Time Biotechnologies, Inc.</span></dd>
+          </div>
+          <div class="table-row">
+            <dt>所在地</dt>
+            <dd>
+              〒606-8304<br>
+              京都府京都市左京区吉田下阿達町46-29<br>
+              京都大学医薬系総合研究棟309
+            </dd>
+          </div>
+          <div class="table-row">
+            <dt>設立</dt>
+            <dd>2025年10月31日</dd>
+          </div>
+          <div class="table-row">
+            <dt>代表取締役社長</dt>
+            <dd>逆井 智貴</dd>
+          </div>
+          <div class="table-row">
+            <dt>事業内容</dt>
+            <dd>iPS細胞を用いた疾患モデリングと創薬スクリーニング基盤の構築</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-header {
+    background-color: var(--c-gray-50);
+    padding: 4rem 0 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--c-gray-500);
+    font-size: 1.1rem;
+  }
+
+  .page-content {
+    max-width: 800px;
+    margin: 0 auto 6rem;
+  }
+
+  .company-table {
+    border-top: 1px solid var(--c-gray-200);
+  }
+
+  .table-row {
+    display: flex;
+    border-bottom: 1px solid var(--c-gray-200);
+  }
+
+  .table-row dt {
+    width: 30%;
+    padding: 1.5rem 1rem 1.5rem 0;
+    font-weight: 600;
+    color: var(--c-gray-900);
+  }
+
+  .table-row dd {
+    width: 70%;
+    padding: 1.5rem 0;
+    color: var(--c-gray-800);
+    line-height: 1.8;
+  }
+
+  .en {
+    font-size: 0.9em;
+    color: var(--c-gray-500);
+  }
+
+  @media (max-width: 640px) {
+    .table-row {
+      flex-direction: column;
+    }
+    
+    .table-row dt {
+      width: 100%;
+      padding-bottom: 0.5rem;
+      color: var(--c-gray-500);
+      font-size: 0.9rem;
+    }
+    
+    .table-row dd {
+      width: 100%;
+      padding-top: 0;
+    }
+  }
+</style>

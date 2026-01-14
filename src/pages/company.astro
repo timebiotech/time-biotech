@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Company | Time Biotechnologies, Inc.">
+  <Header />
+  
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1>Company</h1>
+        <p>企業理念</p>
+      </div>
+    </div>
+
+    <div class="container page-content">
+      <section class="section-block">
+        <h2 class="slogan">iPSテクノロジーを組み上げて<br>時の基盤をつくる</h2>
+        <p class="slogan-sub">Creating the foundation of time with iPS technology.</p>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="section-block">
+        <div class="vmv-block">
+          <h2>Vision</h2>
+          <div class="vmv-content">
+            <p>
+              私たちは、iPS細胞技術と創薬科学を融合させ、<br>
+              神経疾患治療の新たな地平を切り拓きます。<br>
+              「時間」という資源を最大限に活用し、<br>
+              一日も早い治療法の確立を目指します。
+            </p>
+          </div>
+        </div>
+
+        <div class="vmv-block">
+          <h2>Mission</h2>
+          <div class="vmv-content">
+            <p>
+              科学的妥当性の高い疾患モデルと評価系を構築し、<br>
+              創薬研究における不確実性を低減する。<br>
+              パートナーとの協創を通じて、革新的な医薬品を患者様へ届ける。
+            </p>
+          </div>
+        </div>
+
+        <div class="vmv-block">
+          <h2>Value</h2>
+          <div class="vmv-content">
+            <ul class="value-list">
+              <li><strong>Time is Resource</strong> - 時間を価値に変える</li>
+              <li><strong>Integrity</strong> - 科学に対する誠実さ</li>
+              <li><strong>Collaboration</strong> - 共に創る力</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-header {
+    background-color: var(--c-gray-50);
+    padding: 4rem 0 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--c-gray-500);
+    font-size: 1.1rem;
+  }
+
+  .page-content {
+    max-width: 800px;
+    margin: 0 auto 6rem;
+  }
+
+  .section-block {
+    margin-bottom: 4rem;
+  }
+
+  .slogan {
+    font-size: 2rem;
+    line-height: 1.4;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .slogan-sub {
+    text-align: center;
+    color: var(--c-gray-500);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: var(--c-gray-200);
+    margin: 4rem auto;
+    width: 60px;
+  }
+
+  .vmv-block {
+    margin-bottom: 4rem;
+  }
+
+  .vmv-block h2 {
+    font-size: 1.5rem;
+    color: var(--c-accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--c-gray-100);
+    display: inline-block;
+  }
+
+  .vmv-content {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--c-gray-800);
+  }
+
+  .value-list li {
+    margin-bottom: 1rem;
+  }
+</style>
