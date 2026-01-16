@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="About | Time Biotechnologies, Inc.">
   <Header />
-  
+
   <main>
     <div class="page-header">
       <div class="container">
@@ -20,19 +20,27 @@ import Footer from '../components/Footer.astro';
         <dl class="company-table">
           <div class="table-row">
             <dt>会社名</dt>
-            <dd>タイムバイオ株式会社<br><span class="en">Time Biotechnologies, Inc.</span></dd>
+            <dd>
+              タイムバイオ株式会社<br /><span class="en"
+                >Time Biotechnologies, Inc.</span
+              >
+            </dd>
           </div>
           <div class="table-row">
             <dt>所在地</dt>
             <dd>
-              〒606-8304<br>
-              京都府京都市左京区吉田下阿達町46-29<br>
+              〒606-8304<br />
+              京都府京都市左京区吉田下阿達町46-29<br />
               京都大学医薬系総合研究棟309
             </dd>
           </div>
           <div class="table-row">
             <dt>設立</dt>
             <dd>2025年10月31日</dd>
+          </div>
+          <div class="table-row">
+            <dt>創業科学者</dt>
+            <dd>井上 治久 教授（京都大学iPS細胞研究所 副所長）</dd>
           </div>
           <div class="table-row">
             <dt>代表取締役社長</dt>
@@ -105,14 +113,14 @@ import Footer from '../components/Footer.astro';
     .table-row {
       flex-direction: column;
     }
-    
+
     .table-row dt {
       width: 100%;
       padding-bottom: 0.5rem;
       color: var(--c-gray-500);
       font-size: 0.9rem;
     }
-    
+
     .table-row dd {
       width: 100%;
       padding-top: 0;

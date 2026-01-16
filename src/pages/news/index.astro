@@ -1,17 +1,17 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('news')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const posts = (await getCollection("news")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <Layout title="News | Time Biotechnologies, Inc.">
   <Header />
-  
+
   <main>
     <div class="page-header">
       <div class="container">
@@ -22,17 +22,19 @@ const posts = (await getCollection('news')).sort(
 
     <div class="container page-content">
       <div class="news-list">
-        {posts.map((post) => (
-          <article class="news-item">
-            <a href={`/news/${post.slug}`} class="news-link">
-              <time datetime={post.data.pubDate.toISOString()}>
-                {post.data.pubDate.toISOString().slice(0, 10)}
-              </time>
-              <h2 class="news-title">{post.data.title}</h2>
-              <span class="arrow">→</span>
-            </a>
-          </article>
-        ))}
+        {
+          posts.map((post) => (
+            <article class="news-item">
+              <a href={`/news/${post.id}`} class="news-link">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toISOString().slice(0, 10)}
+                </time>
+                <h2 class="news-title">{post.data.title}</h2>
+                <span class="arrow">→</span>
+              </a>
+            </article>
+          ))
+        }
       </div>
     </div>
   </main>
@@ -72,7 +74,7 @@ const posts = (await getCollection('news')).sort(
     border-bottom: 1px solid var(--c-gray-200);
     transition: background-color 0.2s;
   }
-  
+
   .news-item:hover {
     background-color: var(--c-gray-50);
   }
@@ -84,31 +86,33 @@ const posts = (await getCollection('news')).sort(
     color: var(--c-black);
     gap: 2rem;
   }
-  
+
   .news-link time {
     color: var(--c-gray-500);
     font-family: monospace;
     white-space: nowrap;
   }
-  
+
   .news-title {
     font-size: 1.1rem;
     font-weight: 500;
     flex-grow: 1;
     margin: 0;
   }
-  
+
   .arrow {
     color: var(--c-gray-500);
   }
 
   @media (max-width: 640px) {
     .news-link {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
     }
-    
-    .arrow { display: none; }
+
+    .arrow {
+      display: none;
+    }
   }
 </style>

@@ -1,16 +1,25 @@
 ---
-import heroBg from '../assets/images/hero-bg.png';
+import heroBg from "../assets/images/hero-bg.png";
 ---
 
-<section class="hero-section" style={`background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(255, 255, 255, 0.9) 85%), url(${heroBg.src});`}>
+<section
+  class="hero-section"
+  style={`background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(255, 255, 255, 0.9) 85%), url(${heroBg.src});`}
+>
   <div class="container hero-container">
     <div class="hero-content">
-      <h1>iPSテクノロジーで、<br />神経疾患創薬の“現在地”を<br class="sp-only" />押し広げる</h1>
+      <h1>
+        iPSテクノロジーで、<br />神経疾患創薬の“現在地”を<br
+          class="sp-only"
+        />押し広げる
+      </h1>
       <p class="hero-sub">
-        Time Biotechnologiesは、患者由来iPS細胞を用いた高度な疾患モデリングと<br class="pc-only" />
+        Time Biotechnologiesは、患者由来iPS細胞を用いた高度な疾患モデリングと<br
+          class="pc-only"
+        />
         スクリーニング基盤により、治療薬開発の時間を短縮し、新たな価値を創造します。
       </p>
-      
+
       <div class="hero-actions">
         <a href="/pipeline" class="btn btn-primary">Pipelineを見る</a>
         <a href="/contact" class="btn btn-secondary">お問い合わせ</a>
@@ -64,8 +73,12 @@ import heroBg from '../assets/images/hero-bg.png';
     flex-wrap: wrap;
   }
 
-  .sp-only { display: none; }
-  .pc-only { display: inline; }
+  .sp-only {
+    display: none;
+  }
+  .pc-only {
+    display: inline;
+  }
 
   @media (max-width: 768px) {
     .hero-section {
@@ -76,12 +89,16 @@ import heroBg from '../assets/images/hero-bg.png';
     h1 {
       font-size: 2.25rem;
     }
-    
-    .sp-only { display: inline; }
-    .pc-only { display: none; }
-    
+
+    .sp-only {
+      display: inline;
+    }
+    .pc-only {
+      display: none;
+    }
+
     .hero-sub {
-        font-size: 1rem;
+      font-size: 1rem;
     }
   }
 </style>

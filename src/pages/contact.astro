@@ -1,15 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 // Placeholder email address - replace with real one later
-const CONTACT_EMAIL = "contact@time-biotechnologies.com";
+const CONTACT_EMAIL = "info@time-biotech.com";
 ---
 
 <Layout title="Contact | Time Biotechnologies, Inc.">
   <Header />
-  
+
   <main>
     <div class="page-header">
       <div class="container">
@@ -21,20 +21,22 @@ const CONTACT_EMAIL = "contact@time-biotechnologies.com";
     <div class="container page-content">
       <div class="contact-box">
         <p class="contact-desc">
-          共同研究・受託のご相談、その他のお問い合わせは<br class="pc-only">
+          共同研究・受託のご相談、その他のお問い合わせは<br class="pc-only" />
           以下のメールアドレスよりご連絡ください。
         </p>
-        
+
         <div class="cta-wrapper">
           <a href={`mailto:${CONTACT_EMAIL}`} class="btn btn-primary btn-large">
             <span class="icon">✉️</span> メールで問い合わせる
           </a>
         </div>
-        
+
         <div class="email-display">
           <p class="label">メールアドレス</p>
           <code class="email-address">{CONTACT_EMAIL}</code>
-          <p class="note">※メールソフトが起動しない場合は、上記アドレス宛にご連絡ください。</p>
+          <p class="note">
+            ※メールソフトが起動しない場合は、上記アドレス宛にご連絡ください。
+          </p>
         </div>
       </div>
     </div>
@@ -117,20 +119,28 @@ const CONTACT_EMAIL = "contact@time-biotechnologies.com";
     font-size: 0.85rem;
     color: var(--c-gray-500);
   }
-  
-  .sp-only { display: none; }
-  .pc-only { display: inline; }
+
+  .sp-only {
+    display: none;
+  }
+  .pc-only {
+    display: inline;
+  }
 
   @media (max-width: 640px) {
     .contact-box {
       padding: 2rem 1rem;
     }
-    
-    .sp-only { display: inline; }
-    .pc-only { display: none; }
-    
+
+    .sp-only {
+      display: inline;
+    }
+    .pc-only {
+      display: none;
+    }
+
     .btn-large {
-        width: 100%;
+      width: 100%;
     }
   }
 </style>
