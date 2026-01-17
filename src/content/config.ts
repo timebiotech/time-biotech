@@ -7,6 +7,7 @@ const newsCollection = defineCollection({
         description: z.string().optional(),
         pubDate: z.date(),
         updatedDate: z.date().optional(),
+        lang: z.enum(['ja', 'en']).default('ja'),
     }),
 });
 

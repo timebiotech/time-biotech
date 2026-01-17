@@ -1,0 +1,171 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Company | Time Biotechnologies, Inc.">
+    <Header />
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Company</h1>
+                <p>Corporate Philosophy</p>
+            </div>
+        </div>
+
+        <div class="container page-content">
+            <section class="section-block">
+                <h2 class="slogan">
+                    Building the foundation of time<br />with iPS technology
+                </h2>
+                <p class="slogan-sub">
+                    Creating the foundation of time with iPS technology.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section class="section-block">
+                <div class="vmv-block">
+                    <h2>Vision</h2>
+                    <div class="vmv-content">
+                        <p>
+                            By integrating, editing, and restructuring all
+                            scientific technologies,<br />
+                            we aim to establish a drug discovery platform for complex
+                            and unresolved issues of neurodegenerative diseases,<br
+                            />
+                            and give back the results to society.<br />
+                            Accumulating past knowledge and looking ahead to future
+                            possibilities,<br />
+                            what matters is this very moment—facing the disease, implementing
+                            technology, and connecting it to treatment.<br />
+                            From disease modeling to screening,<br />
+                            and to the creation of diverse modalities such as compounds,
+                            antibodies, nucleic acids, and cells,<br />
+                            we push the boundaries of drug discovery centered on iPS
+                            technology<br />
+                            and show a realistic path to overcoming neurodegenerative
+                            diseases.<br />
+                        </p>
+                    </div>
+                </div>
+
+                <div class="vmv-block">
+                    <h2>Mission</h2>
+                    <div class="vmv-content">
+                        <p>
+                            For diseases where establishing fundamental
+                            treatments is difficult,<br />
+                            we build and advance a drug discovery process based on
+                            iPS technology,<br />
+                            ensuring the path to treatment.<br />
+                            We create models that capture the essence of the disease,
+                            conduct screening to determine efficacy,<br />
+                            and present diverse treatment means as realistic options.<br
+                            />
+                            By reconnecting fragments of research and technology and
+                            converting them into the practice of drug discovery,<br
+                            />
+                            we create a meaningful "Present".<br />
+                        </p>
+                    </div>
+                </div>
+
+                <div class="vmv-block">
+                    <h2>Value</h2>
+                    <div class="vmv-content">
+                        <p>
+                            Time is not an abstract concept but a concrete
+                            resource that can be converted into treatment.<br />
+                            By deeply understanding the "heaven-sent" technology of
+                            iPS, editing it for implementation,<br />
+                            and using it fully in the appropriate form, we constantly
+                            connect research to the field.<br />
+                            Accumulating the activities and decisions to be made now<br
+                            />
+                            continues to support the "Time" that spins people's lives.<br
+                            />
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    .page-header {
+        background-color: var(--c-gray-50);
+        padding: 4rem 0 2rem;
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+        color: var(--c-gray-500);
+        font-size: 1.1rem;
+    }
+
+    .page-content {
+        max-width: 800px;
+        margin: 0 auto 6rem;
+    }
+
+    .section-block {
+        margin-bottom: 4rem;
+    }
+
+    .slogan {
+        font-size: 2rem;
+        line-height: 1.4;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .slogan-sub {
+        text-align: center;
+        color: var(--c-gray-500);
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+    }
+
+    .divider {
+        height: 1px;
+        background-color: var(--c-gray-200);
+        margin: 4rem auto;
+        width: 60px;
+    }
+
+    .vmv-block {
+        margin-bottom: 4rem;
+    }
+
+    .vmv-block h2 {
+        font-size: 1.5rem;
+        color: var(--c-accent);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--c-gray-100);
+        display: inline-block;
+    }
+
+    .vmv-content {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: var(--c-gray-800);
+    }
+
+    .value-list li {
+        margin-bottom: 1rem;
+    }
+</style>

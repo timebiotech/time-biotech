@@ -6,10 +6,12 @@ import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("news");
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: post,
-  }));
+  return posts
+    .filter((post) => post.data.lang === "ja")
+    .map((post) => ({
+      params: { slug: post.id },
+      props: post,
+    }));
 }
 
 const post = Astro.props;

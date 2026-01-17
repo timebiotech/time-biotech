@@ -1,0 +1,200 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getRelativeLocaleUrl } from "../../i18n/utils";
+---
+
+<Layout title="Pipeline | Time Biotechnologies, Inc.">
+    <Header />
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Pipeline</h1>
+                <p>Business & Technology</p>
+            </div>
+        </div>
+
+        <div class="container page-content">
+            <p class="lead-text">
+                We provide drug discovery support<br class="sp-only" />centered
+                on iPS technology.
+            </p>
+
+            <div class="pipeline-list">
+                <section id="contract" class="pipeline-item">
+                    <div class="pipeline-icon">🧬</div>
+                    <div class="pipeline-body">
+                        <h2>Contract Services</h2>
+                        <p>
+                            We provide consistent support from the construction
+                            of various disease models tailored to customer needs
+                            to the establishment of evaluation systems and data
+                            analysis.
+                        </p>
+                        <ul class="feature-list">
+                            <li>
+                                Establishment and differentiation induction of
+                                patient-derived iPS cells
+                            </li>
+                            <li>Analysis of disease-specific phenotypes</li>
+                            <li>Construction of assay systems</li>
+                        </ul>
+                        <a
+                            href={getRelativeLocaleUrl("en", "contact")}
+                            class="btn btn-sm btn-outline">Contact Us</a
+                        >
+                    </div>
+                </section>
+
+                <section id="collaboration" class="pipeline-item">
+                    <div class="pipeline-icon">🤝</div>
+                    <div class="pipeline-body">
+                        <h2>Collaboration Research</h2>
+                        <p>
+                            We conduct joint research for the search for novel
+                            targets and acquisition of PoC (Proof of Concept).
+                            We utilize our unique know-how to accelerate drug
+                            discovery projects.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Joint development of screening systems</li>
+                            <li>Elucidation of mechanism of action</li>
+                            <li>Biomarker discovery</li>
+                        </ul>
+                        <a
+                            href={getRelativeLocaleUrl("en", "contact")}
+                            class="btn btn-sm btn-outline"
+                            >Inquire about Collaboration</a
+                        >
+                    </div>
+                </section>
+
+                <section id="support" class="pipeline-item">
+                    <div class="pipeline-icon">🧪</div>
+                    <div class="pipeline-body">
+                        <h2>Drug Discovery Support</h2>
+                        <p>
+                            We provide screening design and verification support
+                            compatible with a wide range of modalities from
+                            small molecules to biopharmaceuticals.
+                        </p>
+                        <ul class="feature-list">
+                            <li>HTS (High-Throughput Screening) design</li>
+                            <li>Verification of hit compounds</li>
+                            <li>Toxicity evaluation</li>
+                        </ul>
+                        <a
+                            href={getRelativeLocaleUrl("en", "contact")}
+                            class="btn btn-sm btn-outline"
+                            >Inquire about Support</a
+                        >
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    .page-header {
+        background-color: var(--c-gray-50);
+        padding: 4rem 0 2rem;
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+        color: var(--c-gray-500);
+        font-size: 1.1rem;
+    }
+
+    .page-content {
+        max-width: 900px;
+        margin: 0 auto 6rem;
+    }
+
+    .lead-text {
+        text-align: center;
+        font-size: 1.25rem;
+        line-height: 1.6;
+        margin-bottom: 4rem;
+        font-weight: 500;
+    }
+
+    .pipeline-item {
+        display: flex;
+        gap: 3rem;
+        margin-bottom: 4rem;
+        padding: 3rem;
+        border: 1px solid var(--c-gray-200);
+        border-radius: var(--radius-md);
+        background: white;
+    }
+
+    .pipeline-item:hover {
+        border-color: var(--c-accent);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .pipeline-icon {
+        font-size: 3.5rem;
+        line-height: 1;
+    }
+
+    .pipeline-body h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .pipeline-body p {
+        color: var(--c-gray-500);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .feature-list {
+        list-style: disc;
+        padding-left: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--c-gray-800);
+    }
+
+    .feature-list li {
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-outline {
+        border: 1px solid var(--c-black);
+        color: var(--c-black);
+        background: transparent;
+        padding: 0.5rem 1.5rem;
+        border-radius: 999px;
+        font-size: 0.9rem;
+    }
+
+    .btn-outline:hover {
+        background: var(--c-black);
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        .pipeline-item {
+            flex-direction: column;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .pipeline-icon {
+            font-size: 2.5rem;
+        }
+    }
+</style>

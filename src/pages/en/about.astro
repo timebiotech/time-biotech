@@ -1,0 +1,129 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="About | Time Biotechnologies, Inc.">
+    <Header />
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>About</h1>
+                <p>Company Profile</p>
+            </div>
+        </div>
+
+        <div class="container page-content">
+            <div class="company-table-wrapper">
+                <dl class="company-table">
+                    <div class="table-row">
+                        <dt>Company Name</dt>
+                        <dd>Time Biotechnologies, Inc.</dd>
+                    </div>
+                    <div class="table-row">
+                        <dt>Location</dt>
+                        <dd>
+                            Medical and Pharmaceutical Sciences Research
+                            Building 309<br />
+                            46-29 Yoshida-Shimoadachi-cho, Sakyo-ku,<br />
+                            Kyoto 606-8304, Japan
+                        </dd>
+                    </div>
+                    <div class="table-row">
+                        <dt>Established</dt>
+                        <dd>October 31, 2025</dd>
+                    </div>
+                    <div class="table-row">
+                        <dt>Founding Scientist</dt>
+                        <dd>Prof. Haruhisa Inoue (CiRA, Kyoto University)</dd>
+                    </div>
+                    <div class="table-row">
+                        <dt>President & CEO</dt>
+                        <dd>Tomoki Sakasai</dd>
+                    </div>
+                    <div class="table-row">
+                        <dt>Business</dt>
+                        <dd>
+                            Construction of disease modeling and drug discovery
+                            screening platforms using iPS cells
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    .page-header {
+        background-color: var(--c-gray-50);
+        padding: 4rem 0 2rem;
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+        color: var(--c-gray-500);
+        font-size: 1.1rem;
+    }
+
+    .page-content {
+        max-width: 800px;
+        margin: 0 auto 6rem;
+    }
+
+    .company-table {
+        border-top: 1px solid var(--c-gray-200);
+    }
+
+    .table-row {
+        display: flex;
+        border-bottom: 1px solid var(--c-gray-200);
+    }
+
+    .table-row dt {
+        width: 30%;
+        padding: 1.5rem 1rem 1.5rem 0;
+        font-weight: 600;
+        color: var(--c-gray-900);
+    }
+
+    .table-row dd {
+        width: 70%;
+        padding: 1.5rem 0;
+        color: var(--c-gray-800);
+        line-height: 1.8;
+    }
+
+    .en {
+        font-size: 0.9em;
+        color: var(--c-gray-500);
+    }
+
+    @media (max-width: 640px) {
+        .table-row {
+            flex-direction: column;
+        }
+
+        .table-row dt {
+            width: 100%;
+            padding-bottom: 0.5rem;
+            color: var(--c-gray-500);
+            font-size: 0.9rem;
+        }
+
+        .table-row dd {
+            width: 100%;
+            padding-top: 0;
+        }
+    }
+</style>

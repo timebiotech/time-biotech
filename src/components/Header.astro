@@ -1,11 +1,19 @@
 ---
+import {
+  getLangFromUrl,
+  useTranslations,
+  getRelativeLocaleUrl,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const homeUrl = lang === "ja" ? "/" : "/en";
 ---
 
 <header class="header">
   <div class="container header-inner">
-    <a href="/" class="logo">
-      Time Biotechnologies
-    </a>
+    <a href={homeUrl} class="logo"> Time Biotechnologies </a>
 
     <button id="menu-toggle" class="menu-toggle" aria-label="Menu">
       <span class="bar"></span>
@@ -15,26 +23,64 @@
 
     <nav id="nav-menu" class="nav-menu">
       <ul class="nav-list">
-        <li><a href="/company" class="nav-link">Company</a></li>
-        <li><a href="/about" class="nav-link">About</a></li>
-        <li><a href="/pipeline" class="nav-link">Pipeline</a></li>
-        <li><a href="/news" class="nav-link">News</a></li>
-        <li><a href="/contact" class="nav-link btn btn-cat">Contact</a></li>
+        <li>
+          <a href={getRelativeLocaleUrl(lang, "company")} class="nav-link"
+            >{t("nav.company")}</a
+          >
+        </li>
+        <li>
+          <a href={getRelativeLocaleUrl(lang, "about")} class="nav-link"
+            >{t("nav.about")}</a
+          >
+        </li>
+        <li>
+          <a href={getRelativeLocaleUrl(lang, "pipeline")} class="nav-link"
+            >{t("nav.pipeline")}</a
+          >
+        </li>
+        <li>
+          <a href={getRelativeLocaleUrl(lang, "news")} class="nav-link"
+            >{t("nav.news")}</a
+          >
+        </li>
+        <li>
+          <a
+            href={getRelativeLocaleUrl(lang, "contact")}
+            class="nav-link btn btn-cat">{t("nav.contact")}</a
+          >
+        </li>
+        <li class="lang-switch">
+          <a
+            href={getRelativeLocaleUrl(
+              "ja",
+              Astro.url.pathname.replace(/^\/en/, "") || "/",
+            )}
+            class:list={["lang-link", { active: lang === "ja" }]}>JP</a
+          >
+          <span class="lang-sep">/</span>
+          <a
+            href={getRelativeLocaleUrl(
+              "en",
+              Astro.url.pathname.replace(/^\/en/, "") || "/",
+            )}
+            class:list={["lang-link", { active: lang === "en" }]}>EN</a
+          >
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
 <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const navMenu = document.getElementById('nav-menu');
+  const menuToggle = document.getElementById("menu-toggle");
+  const navMenu = document.getElementById("nav-menu");
 
   if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-      navMenu.classList.toggle('is-active');
-      menuToggle.classList.toggle('is-active');
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      navMenu.classList.toggle("is-active");
+      menuToggle.classList.toggle("is-active");
     });
   }
 </script>
@@ -70,12 +116,16 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+    list-style: none; /* Reset default list style */
+    margin: 0;
+    padding: 0;
   }
 
   .nav-link {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--c-gray-800);
+    text-decoration: none;
   }
 
   .nav-link:hover {
@@ -88,11 +138,35 @@
     padding: 0.5rem 1.25rem;
     border-radius: 999px;
   }
-  
+
   .nav-link.btn-cat:hover {
     background-color: var(--c-accent);
     color: white;
     opacity: 1;
+  }
+
+  /* Language Switcher */
+  .lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .lang-link {
+    color: var(--c-gray-400);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .lang-link:hover,
+  .lang-link.active {
+    color: var(--c-black);
+  }
+
+  .lang-sep {
+    color: var(--c-gray-300);
   }
 
   .menu-toggle {
@@ -142,11 +216,11 @@
       gap: 1rem;
       text-align: center;
     }
-    
+
     .nav-link.btn-cat {
-        width: 100%;
-        display: inline-block;
-        max-width: 200px;
+      width: 100%;
+      display: inline-block;
+      max-width: 200px;
     }
 
     /* Hamburger Animation */

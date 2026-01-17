@@ -1,5 +1,13 @@
 ---
+import {
+  getLangFromUrl,
+  useTranslations,
+  getRelativeLocaleUrl,
+} from "../i18n/utils";
 import heroBg from "../assets/images/hero-bg.png";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section
@@ -9,20 +17,57 @@ import heroBg from "../assets/images/hero-bg.png";
   <div class="container hero-container">
     <div class="hero-content">
       <h1>
-        iPSテクノロジーで、<br />神経疾患創薬の“現在地”を<br
-          class="sp-only"
-        />押し広げる
+        {
+          lang === "ja" ? (
+            <>
+              iPSテクノロジーで、
+              <br />
+              神経疾患創薬の“現在地”を
+              <br class="sp-only" />
+              押し広げる
+            </>
+          ) : (
+            <>
+              Expanding the "Present"
+              <br />
+              of Drug Discovery for
+              <br />
+              Neurodegenerative Diseases
+              <br />
+              with iPS Technology
+            </>
+          )
+        }
       </h1>
       <p class="hero-sub">
-        Time Biotechnologiesは、患者由来iPS細胞を用いた高度な疾患モデリングと<br
-          class="pc-only"
-        />
-        スクリーニング基盤により、治療薬開発の時間を短縮し、新たな価値を創造します。
+        {
+          lang === "ja" ? (
+            <>
+              Time
+              Biotechnologiesは、患者由来iPS細胞を用いた高度な疾患モデリングと
+              <br class="pc-only" />
+              スクリーニング基盤により、治療薬開発の時間を短縮し、新たな価値を創造します。
+            </>
+          ) : (
+            <>
+              Time Biotechnologies creates new value by shortening the time for
+              therapeutic drug development
+              <br class="pc-only" />
+              through advanced disease modeling using patient-derived iPS cells
+              and screening platforms.
+            </>
+          )
+        }
       </p>
 
       <div class="hero-actions">
-        <a href="/pipeline" class="btn btn-primary">Pipelineを見る</a>
-        <a href="/contact" class="btn btn-secondary">お問い合わせ</a>
+        <a href={getRelativeLocaleUrl(lang, "pipeline")} class="btn btn-primary"
+          >{t("home.hero.button.pipeline")}</a
+        >
+        <a
+          href={getRelativeLocaleUrl(lang, "contact")}
+          class="btn btn-secondary">{t("home.hero.button.contact")}</a
+        >
       </div>
     </div>
   </div>
