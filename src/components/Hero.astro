@@ -12,7 +12,7 @@ const t = useTranslations(lang);
 
 <section
   class="hero-section"
-  style={`background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(255, 255, 255, 0.9) 85%), url(${heroBg.src});`}
+  style={`background-image: linear-gradient(rgba(15, 23, 42, 0.5), rgba(255, 255, 255, 0.4) 85%), url(${heroBg.src});`}
 >
   <div class="container hero-container">
     <div class="hero-content">
@@ -100,16 +100,22 @@ const t = useTranslations(lang);
     letter-spacing: -0.03em;
     margin-bottom: 2rem;
     line-height: 1.1;
-    color: var(--c-primary);
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    text-shadow:
+      0 0 8px rgba(0, 0, 0, 0.8),
+      0 0 16px rgba(0, 0, 0, 0.6),
+      0 2px 4px rgba(0, 0, 0, 0.9);
   }
 
   .hero-sub {
     font-size: 1.25rem;
-    color: var(--c-gray-800);
+    color: #ffffff;
     margin-bottom: 3rem;
     line-height: 1.7;
     font-weight: 500;
+    text-shadow:
+      0 0 6px rgba(0, 0, 0, 0.8),
+      0 1px 3px rgba(0, 0, 0, 0.9);
   }
 
   .hero-actions {
