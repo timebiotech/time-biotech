@@ -48,10 +48,48 @@ import Footer from "../components/Footer.astro";
           </div>
           <div class="table-row">
             <dt>事業内容</dt>
-            <dd>iPS細胞を用いた疾患モデリングと創薬スクリーニング基盤の構築</dd>
+            <dd>iPSテクノロジーと遺伝子治療を用いた難病治療法の開発</dd>
           </div>
         </dl>
       </div>
+
+      <section class="members-section">
+        <h2>メンバー</h2>
+        <div class="members-grid">
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="/images/members/sakasai.jpg" alt="逆井 智貴" />
+            </div>
+            <div class="member-info">
+              <h3>逆井 智貴</h3>
+              <p class="member-title">代表取締役社長</p>
+              <p class="member-bio"></p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="/images/members/kanbayashi.jpg" alt="上林 靖史" />
+            </div>
+            <div class="member-info">
+              <h3>上林 靖史</h3>
+              <p class="member-title">取締役</p>
+              <p class="member-bio"></p>
+            </div>
+          </div>
+
+          <div class="member-card">
+            <div class="member-photo">
+              <img src="/images/members/inoue.jpg" alt="井上 治久" />
+            </div>
+            <div class="member-info">
+              <h3>井上 治久</h3>
+              <p class="member-title">創業科学者</p>
+              <p class="member-bio">京都大学 iPS細胞研究所 教授</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -124,6 +162,76 @@ import Footer from "../components/Footer.astro";
     .table-row dd {
       width: 100%;
       padding-top: 0;
+    }
+  }
+
+  .members-section {
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--c-gray-200);
+  }
+
+  .members-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: var(--c-gray-900);
+  }
+
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .member-card {
+    text-align: center;
+  }
+
+  .member-photo {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--c-gray-100);
+  }
+
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .member-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--c-gray-900);
+  }
+
+  .member-title {
+    font-size: 0.95rem;
+    color: var(--c-accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .member-bio {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--c-gray-600);
+    text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    .members-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .member-photo {
+      width: 140px;
+      height: 140px;
     }
   }
 </style>
