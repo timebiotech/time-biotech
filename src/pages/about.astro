@@ -182,19 +182,21 @@ import Footer from "../components/Footer.astro";
   }
 
   .members-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
 
   .member-card {
-    text-align: center;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
   }
 
   .member-photo {
     width: 160px;
     height: 200px;
-    margin: 0 auto 1.5rem;
+    flex-shrink: 0;
     border-radius: 8px;
     overflow: hidden;
     background-color: var(--c-gray-100);
@@ -204,6 +206,10 @@ import Footer from "../components/Footer.astro";
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  .member-info {
+    flex: 1;
   }
 
   .member-info h3 {
@@ -223,18 +229,22 @@ import Footer from "../components/Footer.astro";
     font-size: 0.9rem;
     line-height: 1.7;
     color: var(--c-gray-600);
-    text-align: left;
   }
 
   @media (max-width: 768px) {
-    .members-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+    .member-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     .member-photo {
       width: 140px;
-      height: 140px;
+      height: 175px;
+    }
+
+    .member-bio {
+      text-align: left;
     }
   }
 </style>
